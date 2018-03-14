@@ -465,7 +465,7 @@ public class PageManager {
     }
 
     private void setupLoadingLayout(PageListener listener, PageLayout loadingAndRetryLayout) {
-        switch (listener.isSetEmptyLayout()) {
+        switch (listener.isSetLoadingLayout()) {
             case TYPE_CUSTOM_LAYOUT_ID:
                 loadingAndRetryLayout.setLoadingView(listener.generateLoadingLayoutId());
                 break;
@@ -485,7 +485,7 @@ public class PageManager {
 
     private void setupRetryLayout(PageListener listener, PageLayout loadingAndRetryLayout) {
 
-        switch (listener.isSetEmptyLayout()) {
+        switch (listener.isSetRetryLayout()) {
             case TYPE_CUSTOM_LAYOUT_ID:
                 loadingAndRetryLayout.setRetryView(listener.generateRetryLayoutId());
                 break;

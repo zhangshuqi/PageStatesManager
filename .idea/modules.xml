@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PageManager.iml" filepath="$PROJECT_DIR$/PageManager.iml" />
+      <module fileurl="file://D:\Code\other\PageStatesManager\PageManager.iml" filepath="D:\Code\other\PageStatesManager\PageManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PageStatesManager.iml" filepath="$PROJECT_DIR$/PageStatesManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/pagemanagerlib/pagemanagerlib.iml" filepath="$PROJECT_DIR$/pagemanagerlib/pagemanagerlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pagemanagerlibrary/pagemanagerlibrary.iml" filepath="$PROJECT_DIR$/pagemanagerlibrary/pagemanagerlibrary.iml" />

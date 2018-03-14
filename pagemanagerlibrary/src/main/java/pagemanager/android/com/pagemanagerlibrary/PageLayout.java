@@ -214,47 +214,79 @@ public class PageLayout extends RelativeLayout {
 
 
     public View setEmptyCustomMessageLayout(int layoutId, String emptyMsg) {
-        return setCustomEmptyMessage(layoutId, emptyMsg);
+        View view = setCustomEmptyMessage(layoutId, emptyMsg);
+        showEmpty();
+        return view;
     }
+
     public View setRetryCustomMessageViewLayout(int layoutId, String retryMsg) {
-        return setCustomRetryMessage(layoutId, retryMsg);
+        View view = setCustomRetryMessage(layoutId, retryMsg);
+        showRetry();
+        return view;
     }
 
     public View setLoadingCustomMessageLayout(int layoutId, String loadMsg) {
-        return setCustomLodingMessage(layoutId, loadMsg);
+        View view = setCustomLodingMessage(layoutId, loadMsg);
+        showLoading();
+        return view;
     }
 
 
-
-    public View setCurrentEmptyMessageLayout( String emptyMsg) {
-        return setCustomEmptyMessage(PageManager.BASE_EMPTY_LAYOUT_ID, emptyMsg);
+    public View setCurrentEmptyMessageLayout(String emptyMsg) {
+        View view = setCustomEmptyMessage(PageManager.BASE_EMPTY_LAYOUT_ID, emptyMsg);
+        showEmpty();
+        return view;
     }
 
-    public View setCurrentRetryMessageViewLayout( String retryMsg) {
-        return setCustomRetryMessage(PageManager.BASE_RETRY_LAYOUT_ID, retryMsg);
+    public View setCurrentRetryMessageViewLayout(String retryMsg) {
+        View view = setCustomRetryMessage(PageManager.BASE_RETRY_LAYOUT_ID, retryMsg);
+        showRetry();
+        return view;
     }
 
-    public View setCurrentLoadingMessageLayout( String loadMsg) {
-        return setCustomLodingMessage(PageManager.BASE_LOADING_LAYOUT_ID, loadMsg);
+    public View setCurrentLoadingMessageLayout(String loadMsg) {
+        View view = setCustomLodingMessage(PageManager.BASE_LOADING_LAYOUT_ID, loadMsg);
+        showLoading();
+        return view;
     }
 
     private View setCustomRetryMessage(int layoutId, String retryMsg) {
-        View emptyView = mInflater.inflate(layoutId, this, false);
+        View emptyView = null;
+        if (getEmptyView() == null) {
+            emptyView = mInflater.inflate(layoutId, this, false);
+            setRetryView(emptyView);
+        } else {
+            emptyView = mRetryView;
+        }
         TextView viewById = (TextView) emptyView.findViewById(R.id.tv_error_msg);
         viewById.setText(retryMsg);
-        return setRetryView(emptyView);
+        return emptyView;
     }
+
     private View setCustomLodingMessage(int layoutId, String loadMsg) {
-        View emptyView = mInflater.inflate(layoutId, this, false);
+
+        View emptyView = null;
+        if (getEmptyView() == null) {
+            emptyView = mInflater.inflate(layoutId, this, false);
+            setLoadingView(emptyView);
+        } else {
+            emptyView = mLoadingView;
+        }
         TextView viewById = (TextView) emptyView.findViewById(R.id.tv_loading);
         viewById.setText(loadMsg);
-        return setLoadingView(emptyView);
+        return emptyView;
     }
 
     private View setCustomEmptyMessage(int layoutId, String emptyMsg) {
-        View emptyView = mInflater.inflate(layoutId, this, false);
+        View emptyView = null;
+        if (getEmptyView() == null) {
+            emptyView = mInflater.inflate(layoutId, this, false);
+            setEmptyView(emptyView);
+        } else {
+            emptyView = mEmptyView;
+        }
         TextView viewById = (TextView) emptyView.findViewById(R.id.tv_empty_msg);
         viewById.setText(emptyMsg);
-        return setEmptyView(emptyView);
+        return emptyView;
     }
 }

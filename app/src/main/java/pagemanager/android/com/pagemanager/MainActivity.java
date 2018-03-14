@@ -45,5 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 mPageManager.showError("我是错误");
             }
         });
+        findViewById(R.id.tv_content).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPageManager.showContent();
+            }
+        });
     }
 }
